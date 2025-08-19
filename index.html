@@ -10,7 +10,8 @@
       rel="stylesheet"
     />
     <style>
-      .star-bg {
+      /* Header background options */
+      .header-bg {
         background: linear-gradient(
           135deg,
           #1e40af 0%,
@@ -18,10 +19,41 @@
           #312e81 100%
         );
         position: relative;
-        overflow: hidden;
       }
 
-      .star-bg::before {
+      /* Alternative header backgrounds - uncomment the one you prefer */
+
+      /* Option 1: Geometric Pattern */
+      .header-bg.geometric::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.05) 25%,
+            transparent 25%
+          ),
+          linear-gradient(
+            -45deg,
+            rgba(255, 255, 255, 0.05) 25%,
+            transparent 25%
+          ),
+          linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%),
+          linear-gradient(
+            -45deg,
+            transparent 75%,
+            rgba(255, 255, 255, 0.05) 75%
+          );
+        background-size: 40px 40px;
+        background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+        opacity: 0.3;
+      }
+
+      /* Option 2: Hexagon Pattern */
+      .header-bg.hexagon::before {
         content: "";
         position: absolute;
         top: 0;
@@ -29,60 +61,214 @@
         right: 0;
         bottom: 0;
         background-image: radial-gradient(
-            2px 2px at 20px 30px,
-            white,
-            transparent
+            circle at 25% 25%,
+            rgba(255, 255, 255, 0.1) 2px,
+            transparent 2px
           ),
-          radial-gradient(2px 2px at 40px 70px, white, transparent),
-          radial-gradient(1px 1px at 90px 40px, white, transparent),
-          radial-gradient(1px 1px at 130px 80px, white, transparent),
-          radial-gradient(2px 2px at 160px 30px, white, transparent);
-        background-repeat: repeat;
-        background-size: 200px 100px;
+          radial-gradient(
+            circle at 75% 75%,
+            rgba(255, 255, 255, 0.1) 2px,
+            transparent 2px
+          );
+        background-size: 50px 50px;
+        background-position: 0 0, 25px 25px;
+        opacity: 0.4;
+      }
+
+      /* Option 3: Dots Pattern */
+      .header-bg.dots::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 1px,
+          transparent 1px
+        );
+        background-size: 30px 30px;
         opacity: 0.3;
       }
 
-      .floating-star {
+      /* Option 4: Wave Pattern */
+      .header-bg.waves::before {
+        content: "";
         position: absolute;
-        color: white;
-        opacity: 0.4;
-        animation: float 6s ease-in-out infinite;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 10px,
+          rgba(255, 255, 255, 0.05) 10px,
+          rgba(255, 255, 255, 0.05) 20px
+        );
+        opacity: 0.3;
       }
 
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px) rotate(0deg);
-        }
-        50% {
-          transform: translateY(-20px) rotate(180deg);
-        }
+      /* Option 5: Custom Image Background */
+      .header-bg.custom-image {
+        background-image: linear-gradient(
+            135deg,
+            rgba(30, 64, 175, 0.9) 0%,
+            rgba(30, 58, 138, 0.95) 50%,
+            rgba(49, 46, 129, 0.9) 100%
+          ),
+          url("/images/header-bg.jpg"); /* Add your custom image here */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
       }
 
+      /* Contact section background options */
+      .contact-bg {
+        background: linear-gradient(
+          135deg,
+          #1e40af 0%,
+          #1e3a8a 50%,
+          #312e81 100%
+        );
+        position: relative;
+      }
+
+      /* Option 1: Same as header */
+      .contact-bg.geometric::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.05) 25%,
+            transparent 25%
+          ),
+          linear-gradient(
+            -45deg,
+            rgba(255, 255, 255, 0.05) 25%,
+            transparent 25%
+          ),
+          linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%),
+          linear-gradient(
+            -45deg,
+            transparent 75%,
+            rgba(255, 255, 255, 0.05) 75%
+          );
+        background-size: 40px 40px;
+        background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+        opacity: 0.3;
+      }
+
+      /* Option 2: Different pattern for contact */
+      .contact-bg.lines::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.05) 2px,
+            rgba(255, 255, 255, 0.05) 4px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.05) 2px,
+            rgba(255, 255, 255, 0.05) 4px
+          );
+        background-size: 50px 50px;
+        opacity: 0.2;
+      }
+
+      /* Option 3: Dark solid background */
+      .contact-bg.solid {
+        background: linear-gradient(
+          135deg,
+          #1f2937 0%,
+          #111827 50%,
+          #030712 100%
+        );
+      }
+
+      /* Option 4: Custom contact image */
+      .contact-bg.custom-image {
+        background-image: linear-gradient(
+            135deg,
+            rgba(30, 64, 175, 0.9) 0%,
+            rgba(30, 58, 138, 0.95) 50%,
+            rgba(49, 46, 129, 0.9) 100%
+          ),
+          url("/images/contact-bg.jpg"); /* Add your custom image here */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      /* Logo container styles */
+      .logo-container {
+        width: 3rem;
+        height: 3rem;
+        background: white;
+        border-radius: 50%;
+        padding: 0.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+      }
+
+      .logo-container:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .logo-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 50%;
+      }
+
+      /* Brand card styles */
       .brand-card {
         transition: all 0.3s ease;
-        background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        background: white;
+        border: 1px solid #e5e7eb;
       }
 
       .brand-card:hover {
-        transform: translateY(-10px);
+        transform: translateY(-8px);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-color: #1e40af;
       }
 
-      /* Album Photo Styles */
+      /* Photo gallery styles */
       .photo-item {
         position: relative;
         overflow: hidden;
-        border-radius: 12px;
+        border-radius: 8px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transition: all 0.4s ease;
         background: white;
         cursor: pointer;
+        border: 1px solid #e5e7eb;
       }
 
       .photo-item:hover {
-        transform: translateY(-8px) scale(1.02);
+        transform: translateY(-5px);
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        border-color: #1e40af;
       }
 
       .photo-item img {
@@ -93,7 +279,7 @@
       }
 
       .photo-item:hover img {
-        transform: scale(1.1);
+        transform: scale(1.05);
       }
 
       .photo-overlay {
@@ -132,67 +318,40 @@
         border-radius: 20px;
         font-size: 0.75rem;
         font-weight: 600;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.95);
+        color: #1e40af;
+        border: 1px solid rgba(30, 64, 175, 0.2);
       }
 
+      /* Category tabs */
       .category-tab {
         color: #6b7280;
-        background: transparent;
-        border: 2px solid transparent;
+        background: white;
+        border: 2px solid #e5e7eb;
         transition: all 0.3s ease;
       }
 
       .category-tab.active {
-        background: white;
-        color: #1e40af;
-        box-shadow: 0 4px 15px rgba(30, 64, 175, 0.2);
+        background: #1e40af;
+        color: white;
+        box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
         border-color: #1e40af;
       }
 
       .category-tab:hover {
         color: #1e40af;
         border-color: #1e40af;
-        background: rgba(30, 64, 175, 0.05);
+        background: #f8fafc;
       }
 
-      .album-gallery {
-        animation: fadeInUp 0.6s ease-out;
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .hidden {
-        display: none;
-      }
-
-      .active {
-        display: block;
-      }
-
-      .section-divider {
-        background: linear-gradient(90deg, transparent, #1e40af, transparent);
-        height: 2px;
-      }
-
-      /* Mobile menu overlay and container */
+      /* Mobile menu styles */
       .mobile-menu-overlay {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(4px);
+        background: rgba(0, 0, 0, 0.6);
         z-index: 40;
         opacity: 0;
         visibility: hidden;
@@ -209,7 +368,7 @@
         top: 0;
         right: 0;
         height: 100%;
-        width: 280px;
+        width: 320px;
         max-width: 85vw;
         background: linear-gradient(
           135deg,
@@ -229,7 +388,7 @@
       }
 
       .mobile-menu-content {
-        padding: 1.5rem;
+        padding: 2rem;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -237,36 +396,29 @@
 
       .mobile-menu-header {
         display: flex;
-        justify-content: between;
+        justify-content: space-between;
         align-items: center;
         margin-bottom: 2rem;
-        padding-bottom: 1rem;
+        padding-bottom: 1.5rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       }
 
-      .mobile-menu-nav {
-        flex: 1;
+      .mobile-logo {
+        width: 2.5rem;
+        height: 2.5rem;
+        background: white;
+        border-radius: 50%;
+        padding: 0.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
-      .mobile-menu-nav a {
-        display: block;
-        color: white;
-        padding: 1rem 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        transition: all 0.3s ease;
-        font-size: 1.1rem;
-        font-weight: 500;
-      }
-
-      .mobile-menu-nav a:hover {
-        color: #bfdbfe;
-        padding-left: 0.5rem;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 0.5rem;
-      }
-
-      .mobile-menu-nav a:last-child {
-        border-bottom: none;
+      .mobile-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 50%;
       }
 
       .close-menu-btn {
@@ -280,7 +432,7 @@
         align-items: center;
         justify-content: center;
         transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
+        cursor: pointer;
       }
 
       .close-menu-btn:hover {
@@ -288,85 +440,50 @@
         transform: rotate(90deg);
       }
 
-      /* Prevent body scroll when menu is open */
-      body.menu-open {
-        overflow: hidden;
-        height: 100vh;
+      .mobile-menu-nav a {
+        display: block;
+        color: white;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        font-size: 1.1rem;
+        font-weight: 500;
+        text-decoration: none;
       }
 
-      /* Responsive adjustments */
-      @media (max-width: 640px) {
-        .hero-title {
-          font-size: 2.5rem;
-          line-height: 1.2;
-        }
-
-        .hero-subtitle {
-          font-size: 1.125rem;
-        }
-
-        .section-title {
-          font-size: 2rem;
-        }
-
-        .category-tabs {
-          flex-direction: column;
-          gap: 0.5rem;
-        }
-
-        .category-tab {
-          width: 100%;
-          text-align: center;
-        }
-
-        .photo-item img {
-          height: 200px;
-        }
-
-        .photo-title {
-          font-size: 1rem;
-        }
-
-        .mobile-menu {
-          width: 300px;
-        }
+      .mobile-menu-nav a:hover {
+        color: #bfdbfe;
+        padding-left: 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 0.5rem;
       }
 
-      @media (max-width: 768px) {
-        .floating-star {
-          display: none;
-        }
+      /* Section divider */
+      .section-divider {
+        background: linear-gradient(90deg, transparent, #1e40af, transparent);
+        height: 2px;
       }
 
-      /* Masonry-like grid for photos */
-      .photo-grid {
-        columns: 1;
-        column-gap: 1.5rem;
+      /* Contact form styles */
+      .contact-form {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
 
-      @media (min-width: 640px) {
-        .photo-grid {
-          columns: 2;
-        }
+      .contact-input {
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
       }
 
-      @media (min-width: 768px) {
-        .photo-grid {
-          columns: 3;
-        }
+      .contact-input::placeholder {
+        color: rgba(191, 219, 254, 0.8);
       }
 
-      @media (min-width: 1024px) {
-        .photo-grid {
-          columns: 4;
-        }
-      }
-
-      .photo-item {
-        break-inside: avoid;
-        margin-bottom: 1.5rem;
-        display: inline-block;
-        width: 100%;
+      .contact-input:focus {
+        outline: none;
+        border-color: rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.2);
       }
 
       /* Lightbox styles */
@@ -416,6 +533,100 @@
       .lightbox-close:hover {
         color: #ff6b6b;
       }
+
+      /* Utility classes */
+      .menu-open {
+        overflow: hidden;
+        height: 100vh;
+      }
+
+      /* CSS Grid Layout for better filtering */
+      .photo-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        width: 100%;
+      }
+
+      @media (min-width: 640px) {
+        .photo-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .logo-container {
+          width: 4rem;
+          height: 4rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .photo-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .photo-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .photo-item {
+        width: 100%;
+        transition: all 0.4s ease;
+      }
+
+      /* Hidden items for filtering */
+      .photo-item.hidden {
+        display: none !important;
+      }
+
+      /* Animation classes */
+      .fade-in-up {
+        animation: fadeInUp 0.6s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Hero section improvements */
+      .hero-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        line-height: 1.6;
+        font-weight: 400;
+      }
+
+      @media (min-width: 640px) {
+        .hero-title {
+          font-size: 3.5rem;
+        }
+        .hero-subtitle {
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .hero-title {
+          font-size: 4rem;
+        }
+        .hero-subtitle {
+          font-size: 1.75rem;
+        }
+      }
     </style>
   </head>
   <body class="bg-gray-50">
@@ -423,63 +634,63 @@
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
 
     <!-- Header -->
-    <header class="star-bg text-white relative">
-      <div class="floating-star top-10 left-10 hidden md:block">
-        <i class="fas fa-star text-xl"></i>
-      </div>
-      <div
-        class="floating-star top-20 right-20 hidden md:block"
-        style="animation-delay: 2s"
-      >
-        <i class="fas fa-star text-lg"></i>
-      </div>
-      <div
-        class="floating-star bottom-20 left-1/4 hidden md:block"
-        style="animation-delay: 4s"
-      >
-        <i class="fas fa-star text-sm"></i>
-      </div>
-
+    <header class="header-bg custom-image text-white relative">
       <!-- Navigation -->
-      <nav class="relative z-10 px-4 sm:px-6 py-4">
+      <nav class="relative z-10 px-4 sm:px-6 py-6">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
-          <div class="flex items-center space-x-3 sm:space-x-4">
-            <div
-              class="w-12 h-12 sm:w-16 sm:h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm overflow-hidden"
-            >
+          <div class="flex items-center space-x-4">
+            <div class="logo-container">
               <img
-                src="/images/logo.jpeg"
+                src="/images/logo.png"
                 alt="Asmany Drawshawa Logo"
-                class="w-full h-full object-cover"
+                class="logo-image"
               />
             </div>
             <div>
-              <h1 class="text-lg sm:text-2xl font-bold">Asmany Drawshawa</h1>
-              <p class="text-blue-100 text-xs sm:text-sm">ئاسمانی دڕۆشاوە</p>
+              <h1 class="text-xl sm:text-2xl font-bold">Asmany Drawshawa</h1>
+              <p
+                class="text-blue-100 text-sm sm:text-base"
+                style="direction: rtl"
+              >
+                ئاسمانی دڕۆشاوە
+              </p>
             </div>
           </div>
 
           <!-- Desktop Navigation -->
           <div class="hidden lg:flex space-x-8">
-            <a href="#home" class="hover:text-blue-200 transition-colors"
+            <a
+              href="#home"
+              class="hover:text-blue-200 transition-colors font-medium px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
               >Home</a
             >
-            <a href="#about" class="hover:text-blue-200 transition-colors"
+            <a
+              href="#about"
+              class="hover:text-blue-200 transition-colors font-medium px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
               >About</a
             >
-            <a href="#brands" class="hover:text-blue-200 transition-colors"
+            <a
+              href="#brands"
+              class="hover:text-blue-200 transition-colors font-medium px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
               >Brands</a
             >
-            <a href="#products" class="hover:text-blue-200 transition-colors"
+            <a
+              href="#products"
+              class="hover:text-blue-200 transition-colors font-medium px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
               >Products</a
             >
-            <a href="#contact" class="hover:text-blue-200 transition-colors"
+            <a
+              href="#contact"
+              class="hover:text-blue-200 transition-colors font-medium px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
               >Contact</a
             >
           </div>
 
           <!-- Mobile Menu Button -->
-          <button class="lg:hidden text-white" id="mobile-menu-button">
+          <button
+            class="lg:hidden text-white p-2 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors"
+            id="mobile-menu-button"
+          >
             <i class="fas fa-bars text-xl"></i>
           </button>
         </div>
@@ -490,18 +701,14 @@
         <div class="mobile-menu-content">
           <div class="mobile-menu-header">
             <div class="flex items-center space-x-3">
-              <div
-                class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm overflow-hidden"
-              >
-                <img
-                  src="/images/logo.jpeg"
-                  alt="Logo"
-                  class="w-full h-full object-cover"
-                />
+              <div class="mobile-logo">
+                <img src="/images/logo.png" alt="Logo" />
               </div>
               <div>
                 <h3 class="text-white font-bold text-lg">Menu</h3>
-                <p class="text-blue-200 text-xs">ئاسمانی دڕۆشاوە</p>
+                <p class="text-blue-200 text-sm" style="direction: rtl">
+                  ئاسمانی دڕۆشاوە
+                </p>
               </div>
             </div>
             <button class="close-menu-btn" id="close-menu">
@@ -509,157 +716,177 @@
             </button>
           </div>
           <nav class="mobile-menu-nav">
-            <a href="#home"> <i class="fas fa-home mr-3"></i>Home </a>
-            <a href="#about"> <i class="fas fa-info-circle mr-3"></i>About </a>
-            <a href="#brands"> <i class="fas fa-star mr-3"></i>Brands </a>
-            <a href="#products"> <i class="fas fa-box mr-3"></i>Products </a>
-            <a href="#contact"> <i class="fas fa-envelope mr-3"></i>Contact </a>
+            <a href="#home"><i class="fas fa-home mr-3"></i>Home</a>
+            <a href="#about"><i class="fas fa-info-circle mr-3"></i>About</a>
+            <a href="#brands"><i class="fas fa-star mr-3"></i>Brands</a>
+            <a href="#products"><i class="fas fa-box mr-3"></i>Products</a>
+            <a href="#contact"><i class="fas fa-envelope mr-3"></i>Contact</a>
           </nav>
         </div>
       </div>
 
       <!-- Hero Section -->
-      <div class="relative z-10 px-4 sm:px-6 py-12 sm:py-20">
-        <div class="max-w-4xl mx-auto text-center">
-          <h2
-            class="hero-title text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 leading-tight"
-          >
+      <div class="relative z-10 px-4 sm:px-6 py-16 sm:py-24">
+        <div class="max-w-5xl mx-auto text-center">
+          <h2 class="hero-title mb-6">
             Premium Distribution
             <span class="block text-blue-200">Excellence in Iraq</span>
           </h2>
-          <p
-            class="hero-subtitle text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed px-4"
-          >
+          <p class="hero-subtitle mb-8 text-blue-100 max-w-4xl mx-auto">
             Your trusted distributor for world-renowned chocolate, dairy, and
-            coffee brands
+            coffee brands, serving the Iraqi market with excellence and
+            integrity
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center px-4">
-            <button
-              class="bg-white text-blue-800 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-blue-50 transition-all transform hover:scale-105"
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#products"
+              class="bg-white text-blue-800 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg"
             >
               <i class="fas fa-shopping-cart mr-2"></i>
-              Our Products
-            </button>
-            <button
-              class="border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-white hover:text-blue-800 transition-all"
+              Explore Products
+            </a>
+            <a
+              href="#about"
+              class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-800 transition-all shadow-lg"
             >
               <i class="fas fa-info-circle mr-2"></i>
               Learn More
-            </button>
+            </a>
           </div>
         </div>
       </div>
     </header>
 
     <!-- About Section -->
-    <section id="about" class="py-12 sm:py-20 bg-white">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-12 sm:mb-16">
-          <h2
-            class="section-title text-3xl sm:text-4xl font-bold text-gray-800 mb-4"
-          >
+    <section id="about" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
             About Asmany Drawshawa
           </h2>
-          <div class="section-divider w-24 mx-auto mb-6 sm:mb-8"></div>
-          <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Proud to be recognized as the main distributor in Iraq for some of
-            the world's most distinguished brands
+          <div class="section-divider w-24 mx-auto mb-8"></div>
+          <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Established as the premier distributor in Iraq, we take pride in
+            representing some of the world's most distinguished and respected
+            brands in the food and beverage industry.
           </p>
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
-          <div class="space-y-6 order-2 lg:order-1">
-            <div class="flex items-start space-x-4">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-8">
+            <div class="flex items-start space-x-6">
               <div
-                class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0"
+                class="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg"
               >
-                <i class="fas fa-award text-white"></i>
+                <i class="fas fa-award text-white text-2xl"></i>
               </div>
               <div>
-                <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
+                <h3 class="text-2xl font-bold text-gray-800 mb-3">
                   Excellence & Trust
                 </h3>
-                <p class="text-gray-600 text-sm sm:text-base">
+                <p class="text-gray-600 text-lg leading-relaxed">
                   Since our establishment, we have dedicated ourselves to
                   building strong partnerships and delivering products that
-                  represent excellence, authenticity, and trust.
+                  represent excellence, authenticity, and unwavering trust in
+                  every transaction.
                 </p>
               </div>
             </div>
 
-            <div class="flex items-start space-x-4">
+            <div class="flex items-start space-x-6">
               <div
-                class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0"
+                class="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg"
               >
-                <i class="fas fa-network-wired text-white"></i>
+                <i class="fas fa-network-wired text-white text-2xl"></i>
               </div>
               <div>
-                <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
+                <h3 class="text-2xl font-bold text-gray-800 mb-3">
                   Reliable Supply Chain
                 </h3>
-                <p class="text-gray-600 text-sm sm:text-base">
-                  Our mission goes beyond distribution—we are committed to
-                  creating a reliable supply chain that ensures premium products
-                  reach every corner of Iraq.
+                <p class="text-gray-600 text-lg leading-relaxed">
+                  Our mission extends beyond simple distribution—we are
+                  committed to creating a comprehensive and reliable supply
+                  chain that ensures premium products reach every corner of Iraq
+                  efficiently and safely.
                 </p>
               </div>
             </div>
 
-            <div class="flex items-start space-x-4">
+            <div class="flex items-start space-x-6">
               <div
-                class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0"
+                class="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg"
               >
-                <i class="fas fa-handshake text-white"></i>
+                <i class="fas fa-handshake text-white text-2xl"></i>
               </div>
               <div>
-                <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
+                <h3 class="text-2xl font-bold text-gray-800 mb-3">
                   Global Bridge
                 </h3>
-                <p class="text-gray-600 text-sm sm:text-base">
-                  Guided by integrity, quality, and customer satisfaction, we
-                  serve as a trusted bridge between global brands and the Iraqi
+                <p class="text-gray-600 text-lg leading-relaxed">
+                  Guided by principles of integrity, quality, and customer
+                  satisfaction, we serve as a trusted bridge connecting
+                  international brands with the dynamic and growing Iraqi
                   market.
                 </p>
               </div>
             </div>
           </div>
 
-          <div class="relative order-1 lg:order-2">
-            <div
-              class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-6 sm:p-8 text-white"
-            >
-              <h3 class="text-xl sm:text-2xl font-bold mb-4">Our Reach</h3>
-              <div class="space-y-4">
-                <div class="flex items-center justify-between">
-                  <span class="text-sm sm:text-base">Major Cities</span>
+          <div
+            class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-8 text-white shadow-2xl"
+          >
+            <h3 class="text-3xl font-bold mb-8 text-center">
+              Our Market Presence
+            </h3>
+            <div class="space-y-6">
+              <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-lg font-semibold"
+                    >Major Cities Coverage</span
+                  >
                   <div class="flex space-x-1">
-                    <i class="fas fa-star text-yellow-300 text-sm"></i>
-                    <i class="fas fa-star text-yellow-300 text-sm"></i>
-                    <i class="fas fa-star text-yellow-300 text-sm"></i>
-                    <i class="fas fa-star text-yellow-300 text-sm"></i>
-                    <i class="fas fa-star text-yellow-300 text-sm"></i>
+                    <i class="fas fa-star text-yellow-300"></i>
+                    <i class="fas fa-star text-yellow-300"></i>
+                    <i class="fas fa-star text-yellow-300"></i>
+                    <i class="fas fa-star text-yellow-300"></i>
+                    <i class="fas fa-star text-yellow-300"></i>
                   </div>
                 </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-sm sm:text-base">Local Communities</span>
+                <p class="text-blue-100">
+                  Comprehensive distribution across all major Iraqi cities
+                </p>
+              </div>
+
+              <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-lg font-semibold">Local Communities</span>
                   <div class="flex space-x-1">
-                    <i class="fas fa-star text-yellow-300 text-sm"></i>
-                    <i class="fas fa-star text-yellow-300 text-sm"></i>
-                    <i class="fas fa-star text-yellow-300 text-sm"></i>
-                    <i class="fas fa-star text-yellow-300 text-sm"></i>
-                    <i class="fas fa-star text-yellow-300 text-sm"></i>
+                    <i class="fas fa-star text-yellow-300"></i>
+                    <i class="fas fa-star text-yellow-300"></i>
+                    <i class="fas fa-star text-yellow-300"></i>
+                    <i class="fas fa-star text-yellow-300"></i>
+                    <i class="fas fa-star text-yellow-300"></i>
                   </div>
                 </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-sm sm:text-base">Quality Assurance</span>
+                <p class="text-blue-100">
+                  Strong relationships with local retailers and businesses
+                </p>
+              </div>
+
+              <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-lg font-semibold">Quality Assurance</span>
                   <div class="flex space-x-1">
-                    <i class="fas fa-star text-yellow-300 text-sm"></i>
-                    <i class="fas fa-star text-yellow-300 text-sm"></i>
-                    <i class="fas fa-star text-yellow-300 text-sm"></i>
-                    <i class="fas fa-star text-yellow-300 text-sm"></i>
-                    <i class="fas fa-star text-yellow-300 text-sm"></i>
+                    <i class="fas fa-star text-yellow-300"></i>
+                    <i class="fas fa-star text-yellow-300"></i>
+                    <i class="fas fa-star text-yellow-300"></i>
+                    <i class="fas fa-star text-yellow-300"></i>
+                    <i class="fas fa-star text-yellow-300"></i>
                   </div>
                 </div>
+                <p class="text-blue-100">
+                  Rigorous quality control and professional standards
+                </p>
               </div>
             </div>
           </div>
@@ -668,41 +895,42 @@
     </section>
 
     <!-- Brands Section -->
-    <section id="brands" class="py-12 sm:py-20 bg-gray-50">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-12 sm:mb-16">
-          <h2
-            class="section-title text-3xl sm:text-4xl font-bold text-gray-800 mb-4"
-          >
-            Our Premium Brands
+    <section id="brands" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
+            Our Premium Brand Portfolio
           </h2>
-          <div class="section-divider w-24 mx-auto mb-6 sm:mb-8"></div>
-          <p class="text-lg sm:text-xl text-gray-600 px-4">
-            Exclusive distribution of world-renowned quality brands
+          <div class="section-divider w-24 mx-auto mb-8"></div>
+          <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+            We are proud to represent internationally recognized brands that
+            epitomize quality, tradition, and excellence in their respective
+            categories
           </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Elit Chocolate -->
-          <div class="brand-card rounded-2xl p-6 sm:p-8 shadow-lg">
+          <div
+            class="brand-card rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all"
+          >
             <div
-              class="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mb-6 mx-auto"
+              class="w-20 h-20 bg-amber-600 rounded-full flex items-center justify-center mb-8 mx-auto shadow-lg"
             >
-              <i class="fas fa-candy-cane text-white text-2xl"></i>
+              <i class="fas fa-candy-cane text-white text-3xl"></i>
             </div>
-            <h3
-              class="text-xl sm:text-2xl font-bold text-gray-800 mb-4 text-center"
-            >
+            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">
               Elit Chocolate
             </h3>
-            <p class="text-gray-600 mb-6 text-center text-sm sm:text-base">
-              The finest quality confectionery that blends tradition with modern
-              taste. Experience the excellence of premium chocolate
-              craftsmanship.
+            <p class="text-gray-600 mb-6 text-center leading-relaxed">
+              Premium Turkish confectionery representing the finest quality
+              chocolate craftsmanship. Elit combines traditional methods with
+              modern innovation to create exceptional chocolate experiences that
+              delight discerning customers.
             </p>
             <div class="text-center">
               <span
-                class="inline-block bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold"
+                class="inline-block bg-amber-100 text-amber-800 px-6 py-3 rounded-full font-semibold border border-amber-200"
               >
                 Exclusive Distributor
               </span>
@@ -710,25 +938,26 @@
           </div>
 
           <!-- Cebel Dairy -->
-          <div class="brand-card rounded-2xl p-6 sm:p-8 shadow-lg">
+          <div
+            class="brand-card rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all"
+          >
             <div
-              class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mb-6 mx-auto"
+              class="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mb-8 mx-auto shadow-lg"
             >
-              <i class="fas fa-cheese text-white text-2xl"></i>
+              <i class="fas fa-cheese text-white text-3xl"></i>
             </div>
-            <h3
-              class="text-xl sm:text-2xl font-bold text-gray-800 mb-4 text-center"
-            >
+            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">
               Cebel Dairy
             </h3>
-            <p class="text-gray-600 mb-6 text-center text-sm sm:text-base">
-              Authentic dairy products that reflect the richness of Turkish
-              craftsmanship and culinary heritage. Pure quality in every
-              product.
+            <p class="text-gray-600 mb-6 text-center leading-relaxed">
+              Authentic Turkish dairy products that reflect centuries of
+              culinary heritage and craftsmanship. Cebel represents purity,
+              tradition, and exceptional quality in every dairy product, from
+              fresh milk to artisanal cheeses.
             </p>
             <div class="text-center">
               <span
-                class="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold"
+                class="inline-block bg-green-100 text-green-800 px-6 py-3 rounded-full font-semibold border border-green-200"
               >
                 Premium Partner
               </span>
@@ -737,27 +966,27 @@
 
           <!-- Mehmet Efendi Coffee -->
           <div
-            class="brand-card rounded-2xl p-6 sm:p-8 shadow-lg sm:col-span-2 lg:col-span-1"
+            class="brand-card rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all md:col-span-2 lg:col-span-1"
           >
             <div
-              class="w-16 h-16 bg-amber-800 rounded-full flex items-center justify-center mb-6 mx-auto"
+              class="w-20 h-20 bg-amber-800 rounded-full flex items-center justify-center mb-8 mx-auto shadow-lg"
             >
-              <i class="fas fa-coffee text-white text-2xl"></i>
+              <i class="fas fa-coffee text-white text-3xl"></i>
             </div>
-            <h3
-              class="text-xl sm:text-2xl font-bold text-gray-800 mb-4 text-center"
-            >
+            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">
               Mehmet Efendi Coffee
             </h3>
-            <p class="text-gray-600 mb-6 text-center text-sm sm:text-base">
-              One of the world's most iconic coffee brands, celebrated for its
-              deep aroma and unmatched flavor. A legacy of coffee excellence.
+            <p class="text-gray-600 mb-6 text-center leading-relaxed">
+              One of the world's most iconic and celebrated coffee brands, with
+              over 150 years of coffee expertise. Mehmet Efendi represents the
+              pinnacle of Turkish coffee culture, offering unmatched aroma,
+              flavor, and tradition.
             </p>
             <div class="text-center">
               <span
-                class="inline-block bg-amber-50 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold"
+                class="inline-block bg-amber-50 text-amber-800 px-6 py-3 rounded-full font-semibold border border-amber-200"
               >
-                Iconic Brand
+                Iconic Heritage Brand
               </span>
             </div>
           </div>
@@ -765,33 +994,45 @@
       </div>
     </section>
 
-    <!-- Products Album Section -->
-    <section id="products" class="py-12 sm:py-20 bg-white">
+    <!-- Products Gallery Section -->
+    <section id="products" class="py-20 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-12 sm:mb-16">
-          <h2
-            class="section-title text-3xl sm:text-4xl font-bold text-gray-800 mb-4"
-          >
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold text-gray-800 mb-6">
             Product Gallery
           </h2>
-          <div class="section-divider w-24 mx-auto mb-6 sm:mb-8"></div>
-          <p class="text-lg sm:text-xl text-gray-600 px-4">
-            Explore our premium collection through our photo gallery
+          <div class="section-divider w-24 mx-auto mb-8"></div>
+          <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+            Discover our extensive collection of premium products through our
+            comprehensive visual gallery showcasing the finest selections from
+            our brand partners
           </p>
         </div>
 
         <!-- Category Filter Tabs -->
         <div
-          class="category-tabs flex flex-wrap justify-center mb-8 sm:mb-12 bg-gray-100 rounded-2xl p-2 max-w-2xl mx-auto gap-2"
+          class="flex flex-wrap justify-center mb-12 bg-gray-100 rounded-2xl p-3 max-w-3xl mx-auto gap-3"
         >
           <button
-            class="category-tab active px-4 sm:px-6 py-3 rounded-xl font-semibold transition-all text-sm sm:text-base"
+            class="category-tab active px-6 py-4 rounded-xl font-semibold transition-all"
             data-category="all"
           >
             <i class="fas fa-th mr-2"></i>All Products
           </button>
           <button
-            class="category-tab px-4 sm:px-6 py-3 rounded-xl font-semibold transition-all text-sm sm:text-base"
+            class="category-tab px-6 py-4 rounded-xl font-semibold transition-all"
+            data-category="chocolate"
+          >
+            <i class="fas fa-candy-cane mr-2"></i>Elit Chocolate
+          </button>
+          <button
+            class="category-tab px-6 py-4 rounded-xl font-semibold transition-all"
+            data-category="dairy"
+          >
+            <i class="fas fa-cheese mr-2"></i>Cebel Dairy
+          </button>
+          <button
+            class="category-tab px-6 py-4 rounded-xl font-semibold transition-all"
             data-category="coffee"
           >
             <i class="fas fa-coffee mr-2"></i>Mehmet Efendi
@@ -799,168 +1040,230 @@
         </div>
 
         <!-- Photo Gallery -->
-        <div class="album-gallery">
+        <div class="fade-in-up">
           <div class="photo-grid" id="photo-gallery">
             <!-- Elit Chocolate Products -->
             <div class="photo-item" data-category="chocolate">
-              <div class="category-badge bg-amber-600 text-white">
-                Elit Chocolate
-              </div>
-              <img src="/images/elit/1.png" alt="Elit Orange Peels" />
+              <div class="category-badge">Elit Chocolate</div>
+              <img
+                src="/images/elit/1.png"
+                alt="Elit Orange Peels Premium Chocolate"
+              />
               <div class="photo-overlay">
-                <div class="photo-title">Orange Peels</div>
+                <div class="photo-title">Orange Peels Collection</div>
+                <p class="text-sm opacity-90">
+                  Premium chocolate with candied orange peels
+                </p>
               </div>
             </div>
 
             <div class="photo-item" data-category="chocolate">
-              <div class="category-badge bg-amber-600 text-white">
-                Elit Chocolate
-              </div>
-              <img src="/images/elit/2.jpeg" alt="Elit Milk Chocolate" />
+              <div class="category-badge">Elit Chocolate</div>
+              <img
+                src="/images/elit/2.jpeg"
+                alt="Elit Milk Chocolate Premium Collection"
+              />
               <div class="photo-overlay">
-                <div class="photo-title">Milk Chocolate</div>
+                <div class="photo-title">Milk Chocolate Collection</div>
+                <p class="text-sm opacity-90">
+                  Smooth and creamy milk chocolate varieties
+                </p>
               </div>
             </div>
 
             <div class="photo-item" data-category="chocolate">
-              <div class="category-badge bg-amber-600 text-white">
-                Elit Chocolate
-              </div>
-              <img src="/images/elit/3.jpeg" alt="Elit Dark Chocolate" />
+              <div class="category-badge">Elit Chocolate</div>
+              <img
+                src="/images/elit/3.jpeg"
+                alt="Elit Dark Chocolate Premium Selection"
+              />
               <div class="photo-overlay">
-                <div class="photo-title">Dark Chocolate</div>
+                <div class="photo-title">Dark Chocolate Selection</div>
+                <p class="text-sm opacity-90">
+                  Rich and intense dark chocolate experiences
+                </p>
               </div>
             </div>
 
             <div class="photo-item" data-category="chocolate">
-              <div class="category-badge bg-amber-600 text-white">
-                Elit Chocolate
-              </div>
-              <img src="/images/elit/4.jpeg" alt="Elit Assorted Box" />
+              <div class="category-badge">Elit Chocolate</div>
+              <img
+                src="/images/elit/4.jpeg"
+                alt="Elit Assorted Premium Gift Box"
+              />
               <div class="photo-overlay">
-                <div class="photo-title">Assorted Collection</div>
+                <div class="photo-title">Assorted Gift Collection</div>
+                <p class="text-sm opacity-90">
+                  Luxury assorted chocolate gift boxes
+                </p>
               </div>
             </div>
 
             <div class="photo-item" data-category="chocolate">
-              <div class="category-badge bg-amber-600 text-white">
-                Elit Chocolate
-              </div>
-              <img src="/images/elit/5.jpeg" alt="Elit Premium Box" />
+              <div class="category-badge">Elit Chocolate</div>
+              <img
+                src="/images/elit/5.jpeg"
+                alt="Elit Premium Chocolate Gift Box"
+              />
               <div class="photo-overlay">
-                <div class="photo-title">Premium Box</div>
+                <div class="photo-title">Premium Gift Box</div>
+                <p class="text-sm opacity-90">
+                  Elegant presentation for special occasions
+                </p>
               </div>
             </div>
 
             <div class="photo-item" data-category="chocolate">
-              <div class="category-badge bg-amber-600 text-white">
-                Elit Chocolate
-              </div>
-              <img src="/images/elit/6.jpeg" alt="Elit Variety Pack" />
+              <div class="category-badge">Elit Chocolate</div>
+              <img
+                src="/images/elit/6.jpeg"
+                alt="Elit Chocolate Variety Pack"
+              />
               <div class="photo-overlay">
-                <div class="photo-title">Variety Pack</div>
+                <div class="photo-title">Variety Pack Collection</div>
+                <p class="text-sm opacity-90">
+                  Diverse flavors in convenient packaging
+                </p>
               </div>
             </div>
 
             <div class="photo-item" data-category="chocolate">
-              <div class="category-badge bg-amber-600 text-white">
-                Elit Chocolate
-              </div>
-              <img src="/images/elit/7.jpeg" alt="Elit Gift Box" />
+              <div class="category-badge">Elit Chocolate</div>
+              <img
+                src="/images/elit/7.jpeg"
+                alt="Elit Special Gift Box Collection"
+              />
               <div class="photo-overlay">
-                <div class="photo-title">Gift Box</div>
+                <div class="photo-title">Special Gift Box</div>
+                <p class="text-sm opacity-90">
+                  Beautifully crafted gift presentations
+                </p>
               </div>
             </div>
 
             <div class="photo-item" data-category="chocolate">
-              <div class="category-badge bg-amber-600 text-white">
-                Elit Chocolate
-              </div>
-              <img src="/images/elit/8.jpeg" alt="Elit Special Edition" />
+              <div class="category-badge">Elit Chocolate</div>
+              <img
+                src="/images/elit/8.jpeg"
+                alt="Elit Special Edition Premium Chocolate"
+              />
               <div class="photo-overlay">
-                <div class="photo-title">Special Edition</div>
+                <div class="photo-title">Special Edition Collection</div>
+                <p class="text-sm opacity-90">
+                  Limited edition premium chocolates
+                </p>
               </div>
             </div>
 
             <!-- Cebel Dairy Products -->
             <div class="photo-item" data-category="dairy">
-              <div class="category-badge bg-green-600 text-white">
-                Cebel Dairy
-              </div>
-              <img src="/images/cebel/1.jpg" alt="Cebel White Cheese" />
+              <div class="category-badge">Cebel Dairy</div>
+              <img
+                src="/images/cebel/1.jpg"
+                alt="Cebel Turkish White Cheese Premium Quality"
+              />
               <div class="photo-overlay">
                 <div class="photo-title">Turkish White Cheese</div>
+                <p class="text-sm opacity-90">
+                  Authentic traditional white cheese
+                </p>
               </div>
             </div>
 
             <div class="photo-item" data-category="dairy">
-              <div class="category-badge bg-green-600 text-white">
-                Cebel Dairy
-              </div>
-              <img src="/images/cebel/2.jpeg" alt="Cebel Fresh Milk" />
+              <div class="category-badge">Cebel Dairy</div>
+              <img
+                src="/images/cebel/2.jpeg"
+                alt="Cebel Fresh Milk Premium Quality"
+              />
               <div class="photo-overlay">
                 <div class="photo-title">Fresh Milk</div>
+                <p class="text-sm opacity-90">Pure and nutritious fresh milk</p>
               </div>
             </div>
 
             <div class="photo-item" data-category="dairy">
-              <div class="category-badge bg-green-600 text-white">
-                Cebel Dairy
-              </div>
-              <img src="/images/cebel/3.jpeg" alt="Cebel Butter" />
+              <div class="category-badge">Cebel Dairy</div>
+              <img
+                src="/images/cebel/3.jpeg"
+                alt="Cebel Traditional Butter Premium"
+              />
               <div class="photo-overlay">
                 <div class="photo-title">Traditional Butter</div>
+                <p class="text-sm opacity-90">
+                  Rich and creamy traditional butter
+                </p>
               </div>
             </div>
 
             <div class="photo-item" data-category="dairy">
-              <div class="category-badge bg-green-600 text-white">
-                Cebel Dairy
-              </div>
-              <img src="/images/cebel/4.jpeg" alt="Cebel Yogurt" />
+              <div class="category-badge">Cebel Dairy</div>
+              <img
+                src="/images/cebel/4.jpeg"
+                alt="Cebel Turkish Yogurt Premium"
+              />
               <div class="photo-overlay">
                 <div class="photo-title">Turkish Yogurt</div>
+                <p class="text-sm opacity-90">
+                  Authentic thick and creamy yogurt
+                </p>
               </div>
             </div>
 
             <!-- Mehmet Efendi Coffee Products -->
             <div class="photo-item" data-category="coffee">
-              <div class="category-badge bg-amber-800 text-white">
-                Mehmet Efendi
-              </div>
-              <img src="/images/mehmet_efendi/1.png" alt="Turkish Coffee" />
+              <div class="category-badge">Mehmet Efendi</div>
+              <img
+                src="/images/mehmet_efendi/1.png"
+                alt="Mehmet Efendi Traditional Turkish Coffee"
+              />
               <div class="photo-overlay">
-                <div class="photo-title">Turkish Coffee</div>
+                <div class="photo-title">Traditional Turkish Coffee</div>
+                <p class="text-sm opacity-90">
+                  Authentic Turkish coffee experience
+                </p>
               </div>
             </div>
 
             <div class="photo-item" data-category="coffee">
-              <div class="category-badge bg-amber-800 text-white">
-                Mehmet Efendi
-              </div>
-              <img src="/images/mehmet_efendi/2.jpeg" alt="Espresso Blend" />
+              <div class="category-badge">Mehmet Efendi</div>
+              <img
+                src="/images/mehmet_efendi/2.jpeg"
+                alt="Mehmet Efendi Espresso Blend Premium"
+              />
               <div class="photo-overlay">
                 <div class="photo-title">Espresso Blend</div>
+                <p class="text-sm opacity-90">
+                  Rich and aromatic espresso blend
+                </p>
               </div>
             </div>
 
             <div class="photo-item" data-category="coffee">
-              <div class="category-badge bg-amber-800 text-white">
-                Mehmet Efendi
-              </div>
-              <img src="/images/mehmet_efendi/3.jpeg" alt="Filter Coffee" />
+              <div class="category-badge">Mehmet Efendi</div>
+              <img
+                src="/images/mehmet_efendi/3.jpeg"
+                alt="Mehmet Efendi Filter Coffee Premium"
+              />
               <div class="photo-overlay">
                 <div class="photo-title">Filter Coffee</div>
+                <p class="text-sm opacity-90">
+                  Smooth filter coffee for every moment
+                </p>
               </div>
             </div>
 
             <div class="photo-item" data-category="coffee">
-              <div class="category-badge bg-amber-800 text-white">
-                Mehmet Efendi
-              </div>
-              <img src="/images/mehmet_efendi/5.jpeg" alt="Coffee Beans" />
+              <div class="category-badge">Mehmet Efendi</div>
+              <img
+                src="/images/mehmet_efendi/5.jpeg"
+                alt="Mehmet Efendi Premium Coffee Beans"
+              />
               <div class="photo-overlay">
-                <div class="photo-title">Premium Beans</div>
+                <div class="photo-title">Premium Coffee Beans</div>
+                <p class="text-sm opacity-90">
+                  Carefully selected premium coffee beans
+                </p>
               </div>
             </div>
           </div>
@@ -973,145 +1276,168 @@
       <div class="lightbox-content">
         <div class="lightbox-close" id="lightbox-close">&times;</div>
         <img src="" alt="" id="lightbox-img" />
-        <div class="text-center mt-4">
-          <h3 class="text-white text-xl font-semibold" id="lightbox-title"></h3>
-          <p class="text-gray-300 mt-2" id="lightbox-category"></p>
+        <div class="text-center mt-6">
+          <h3 class="text-white text-2xl font-bold" id="lightbox-title"></h3>
+          <p class="text-gray-300 mt-2 text-lg" id="lightbox-category"></p>
         </div>
       </div>
     </div>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-12 sm:py-20 star-bg text-white relative">
-      <div
-        class="floating-star top-10 right-10 hidden md:block"
-        style="animation-delay: 1s"
-      >
-        <i class="fas fa-star text-lg"></i>
-      </div>
-      <div
-        class="floating-star bottom-10 left-10 hidden md:block"
-        style="animation-delay: 3s"
-      >
-        <i class="fas fa-star text-sm"></i>
-      </div>
-
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-        <div class="text-center mb-12 sm:mb-16">
-          <h2 class="section-title text-3xl sm:text-4xl font-bold mb-4">
-            Get In Touch
-          </h2>
-          <div class="w-24 h-0.5 bg-white mx-auto mb-6 sm:mb-8"></div>
-          <p class="text-lg sm:text-xl text-blue-100 px-4">
-            Ready to bring premium quality to your business?
+    <section
+      id="contact"
+      class="py-20 contact-bg custom-image text-white relative"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6">Get In Touch</h2>
+          <div class="w-24 h-1 bg-white mx-auto mb-8"></div>
+          <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+            Ready to bring premium quality products to your business? Contact us
+            today to discuss partnership opportunities and product availability.
           </p>
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-8 sm:gap-12">
-          <div class="space-y-6 sm:space-y-8 order-2 lg:order-1">
-            <div class="flex items-start space-x-4">
+        <div class="grid lg:grid-cols-2 gap-16">
+          <div class="space-y-8">
+            <div class="flex items-start space-x-6">
               <div
-                class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0 backdrop-blur-sm"
+                class="w-16 h-16 bg-white bg-opacity-20 rounded-xl flex items-center justify-center flex-shrink-0"
               >
-                <i class="fas fa-map-marker-alt text-white"></i>
+                <i class="fas fa-map-marker-alt text-white text-2xl"></i>
               </div>
               <div>
-                <h3 class="text-lg sm:text-xl font-semibold mb-2">Location</h3>
-                <p class="text-blue-100 text-sm sm:text-base">
-                  Erbil 100m, Italy 1
-                </p>
-                <p class="text-blue-100 text-sm sm:text-base">
+                <h3 class="text-2xl font-bold mb-3">Our Location</h3>
+                <p class="text-blue-100 text-lg mb-2">Erbil 100m, Italy 1</p>
+                <p class="text-blue-100 text-lg" style="direction: rtl">
                   هەولیر ١٠٠م، ئیتالی ١
                 </p>
+                <p class="text-blue-200 mt-2">Kurdistan Region, Iraq</p>
               </div>
             </div>
 
-            <div class="flex items-start space-x-4">
+            <div class="flex items-start space-x-6">
               <div
-                class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0 backdrop-blur-sm"
+                class="w-16 h-16 bg-white bg-opacity-20 rounded-xl flex items-center justify-center flex-shrink-0"
               >
-                <i class="fas fa-phone text-white"></i>
+                <i class="fas fa-phone text-white text-2xl"></i>
               </div>
               <div>
-                <h3 class="text-lg sm:text-xl font-semibold mb-2">
-                  Phone Numbers
-                </h3>
-                <p class="text-blue-100 mb-1 text-sm sm:text-base">
+                <h3 class="text-2xl font-bold mb-3">Contact Numbers</h3>
+                <p class="text-blue-100 mb-2 text-lg">
                   <a
                     href="tel:07502222242"
                     class="hover:text-white transition-colors"
-                    >07502222242</a
+                    >+964 750 222 2242</a
                   >
                 </p>
-                <p class="text-blue-100 text-sm sm:text-base">
+                <p class="text-blue-100 text-lg">
                   <a
                     href="tel:07506009696"
                     class="hover:text-white transition-colors"
-                    >07506009696</a
+                    >+964 750 600 9696</a
                   >
+                </p>
+                <p class="text-blue-200 mt-2">
+                  Available for business inquiries
                 </p>
               </div>
             </div>
 
-            <div class="flex items-start space-x-4">
+            <div class="flex items-start space-x-6">
               <div
-                class="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0 backdrop-blur-sm"
+                class="w-16 h-16 bg-white bg-opacity-20 rounded-xl flex items-center justify-center flex-shrink-0"
               >
-                <i class="fas fa-clock text-white"></i>
+                <i class="fas fa-clock text-white text-2xl"></i>
               </div>
               <div>
-                <h3 class="text-lg sm:text-xl font-semibold mb-2">
-                  Business Hours
-                </h3>
-                <p class="text-blue-100 text-sm sm:text-base">
+                <h3 class="text-2xl font-bold mb-3">Business Hours</h3>
+                <p class="text-blue-100 text-lg mb-1">
                   Sunday - Thursday: 8:00 AM - 6:00 PM
                 </p>
-                <p class="text-blue-100 text-sm sm:text-base">
+                <p class="text-blue-100 text-lg mb-1">
                   Friday - Saturday: 9:00 AM - 4:00 PM
                 </p>
+                <p class="text-blue-200 mt-2">Local time (GMT+3)</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-6">
+              <div
+                class="w-16 h-16 bg-white bg-opacity-20 rounded-xl flex items-center justify-center flex-shrink-0"
+              >
+                <i class="fas fa-envelope text-white text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold mb-3">Email Contact</h3>
+                <p class="text-blue-100 text-lg">
+                  <a
+                    href="mailto:info@asmanydrawshawa.com"
+                    class="hover:text-white transition-colors"
+                  >
+                    info@asmanydrawshawa.com
+                  </a>
+                </p>
+                <p class="text-blue-200 mt-2">Professional inquiries welcome</p>
               </div>
             </div>
           </div>
 
-          <div
-            class="bg-white bg-opacity-10 rounded-2xl p-6 sm:p-8 backdrop-blur-sm order-1 lg:order-2"
-          >
-            <h3 class="text-xl sm:text-2xl font-bold mb-6">
-              Send us a Message
+          <div class="contact-form rounded-2xl p-8">
+            <h3 class="text-2xl font-bold mb-8 text-center">
+              Send us a Professional Inquiry
             </h3>
-            <form class="space-y-4">
+            <form class="space-y-6">
               <div class="grid sm:grid-cols-2 gap-4">
                 <input
                   type="text"
-                  placeholder="First Name"
-                  class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-blue-200 focus:outline-none focus:border-opacity-60 backdrop-blur-sm text-sm sm:text-base"
+                  placeholder="First Name *"
+                  required
+                  class="contact-input w-full px-4 py-4 rounded-lg text-lg"
                 />
                 <input
                   type="text"
-                  placeholder="Last Name"
-                  class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-blue-200 focus:outline-none focus:border-opacity-60 backdrop-blur-sm text-sm sm:text-base"
+                  placeholder="Last Name *"
+                  required
+                  class="contact-input w-full px-4 py-4 rounded-lg text-lg"
                 />
               </div>
               <input
                 type="email"
-                placeholder="Email Address"
-                class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-blue-200 focus:outline-none focus:border-opacity-60 backdrop-blur-sm text-sm sm:text-base"
+                placeholder="Business Email Address *"
+                required
+                class="contact-input w-full px-4 py-4 rounded-lg text-lg"
               />
               <input
                 type="tel"
-                placeholder="Phone Number"
-                class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-blue-200 focus:outline-none focus:border-opacity-60 backdrop-blur-sm text-sm sm:text-base"
+                placeholder="Phone Number *"
+                required
+                class="contact-input w-full px-4 py-4 rounded-lg text-lg"
               />
+              <input
+                type="text"
+                placeholder="Company Name"
+                class="contact-input w-full px-4 py-4 rounded-lg text-lg"
+              />
+              <select class="contact-input w-full px-4 py-4 rounded-lg text-lg">
+                <option value="">Select Inquiry Type</option>
+                <option value="distribution">Distribution Partnership</option>
+                <option value="wholesale">Wholesale Orders</option>
+                <option value="retail">Retail Inquiries</option>
+                <option value="general">General Information</option>
+              </select>
               <textarea
                 rows="4"
-                placeholder="Your Message"
-                class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-blue-200 focus:outline-none focus:border-opacity-60 backdrop-blur-sm resize-none text-sm sm:text-base"
+                placeholder="Your Message *"
+                required
+                class="contact-input w-full px-4 py-4 rounded-lg resize-none text-lg"
               ></textarea>
               <button
                 type="submit"
-                class="w-full bg-white text-blue-800 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold hover:bg-blue-50 transition-all transform hover:scale-105 text-sm sm:text-base"
+                class="w-full bg-white text-blue-800 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition-all transform hover:scale-105 text-lg shadow-lg"
               >
                 <i class="fas fa-paper-plane mr-2"></i>
-                Send Message
+                Send Professional Inquiry
               </button>
             </form>
           </div>
@@ -1120,66 +1446,81 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8 sm:py-12">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          <div class="sm:col-span-2 lg:col-span-1">
-            <div class="flex items-center space-x-4 mb-4">
+    <footer class="bg-gray-900 text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="lg:col-span-2">
+            <div class="flex items-center space-x-4 mb-6">
               <div
-                class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center overflow-hidden"
+                class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-lg"
               >
                 <img
-                  src="/images/logo.jpeg"
+                  src="/images/logo.png"
                   alt="Asmany Drawshawa Logo"
-                  class="w-full h-full rounded-full"
+                  class="w-full h-full object-contain rounded-full p-1"
                 />
               </div>
               <div>
-                <h3 class="text-lg sm:text-xl font-bold">Asmany Drawshawa</h3>
-                <p class="text-gray-400 text-xs sm:text-sm">ئاسمانی دڕۆشاوە</p>
+                <h3 class="text-2xl font-bold">Asmany Drawshawa</h3>
+                <p class="text-gray-400" style="direction: rtl">
+                  ئاسمانی دڕۆشاوە
+                </p>
               </div>
             </div>
-            <p class="text-gray-300 mb-4 text-sm sm:text-base">
+            <p class="text-gray-300 mb-6 text-lg leading-relaxed max-w-md">
               Your trusted distributor for premium chocolate, dairy, and coffee
-              brands in Iraq.
+              brands in Iraq. Committed to excellence, quality, and professional
+              service.
             </p>
             <div class="flex space-x-4">
               <a
                 href="#"
-                class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
+                class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
               >
-                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-facebook-f text-lg"></i>
               </a>
               <a
                 href="#"
-                class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
+                class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
               >
-                <i class="fab fa-instagram"></i>
+                <i class="fab fa-instagram text-lg"></i>
               </a>
               <a
                 href="#"
-                class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
+                class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
               >
-                <i class="fab fa-linkedin-in"></i>
+                <i class="fab fa-linkedin-in text-lg"></i>
+              </a>
+              <a
+                href="#"
+                class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
+              >
+                <i class="fab fa-whatsapp text-lg"></i>
               </a>
             </div>
           </div>
 
           <div>
-            <h4 class="text-base sm:text-lg font-semibold mb-4">Our Brands</h4>
-            <ul class="space-y-2 text-gray-300 text-sm sm:text-base">
+            <h4 class="text-xl font-bold mb-6">Our Brand Portfolio</h4>
+            <ul class="space-y-3 text-gray-300">
               <li>
-                <a href="#" class="hover:text-white transition-colors"
+                <a
+                  href="#brands"
+                  class="hover:text-white transition-colors text-lg"
                   >Elit Chocolate</a
                 >
               </li>
               <li>
-                <a href="#" class="hover:text-white transition-colors"
-                  >Cebel Dairy</a
+                <a
+                  href="#brands"
+                  class="hover:text-white transition-colors text-lg"
+                  >Cebel Dairy Products</a
                 >
               </li>
               <li>
-                <a href="#" class="hover:text-white transition-colors"
+                <a
+                  href="#brands"
+                  class="hover:text-white transition-colors text-lg"
                   >Mehmet Efendi Coffee</a
                 >
               </li>
@@ -1187,14 +1528,26 @@
           </div>
 
           <div>
-            <h4 class="text-base sm:text-lg font-semibold mb-4">
-              Quick Contact
-            </h4>
-            <div class="space-y-2 text-gray-300 text-sm sm:text-base">
-              <p><i class="fas fa-phone mr-2"></i>07502222242</p>
-              <p><i class="fas fa-phone mr-2"></i>07506009696</p>
-              <p>
-                <i class="fas fa-envelope mr-2"></i>
+            <h4 class="text-xl font-bold mb-6">Quick Contact</h4>
+            <div class="space-y-3 text-gray-300">
+              <p class="flex items-center text-lg">
+                <i class="fas fa-phone mr-3 text-blue-400"></i>
+                <a
+                  href="tel:07502222242"
+                  class="hover:text-white transition-colors"
+                  >+964 750 222 2242</a
+                >
+              </p>
+              <p class="flex items-center text-lg">
+                <i class="fas fa-phone mr-3 text-blue-400"></i>
+                <a
+                  href="tel:07506009696"
+                  class="hover:text-white transition-colors"
+                  >+964 750 600 9696</a
+                >
+              </p>
+              <p class="flex items-center text-lg">
+                <i class="fas fa-envelope mr-3 text-blue-400"></i>
                 <a
                   href="mailto:info@asmanydrawshawa.com"
                   class="hover:text-white transition-colors"
@@ -1202,23 +1555,27 @@
                   info@asmanydrawshawa.com
                 </a>
               </p>
-              <p>
-                <i class="fas fa-map-marker-alt mr-2"></i>Erbil 100m, Italy 1
+              <p class="flex items-start text-lg">
+                <i class="fas fa-map-marker-alt mr-3 text-blue-400 mt-1"></i>
+                <span>Erbil 100m, Italy 1<br />Kurdistan Region, Iraq</span>
               </p>
             </div>
           </div>
         </div>
 
         <div
-          class="border-t border-gray-700 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-gray-400"
+          class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400"
         >
-          <p class="text-xs sm:text-sm">
+          <p class="text-lg">
             &copy; 2024 Asmany Drawshawa. All rights reserved. | Premium
-            Distribution Excellence |
+            Distribution Excellence in Iraq
+          </p>
+          <p class="mt-2">
+            Professional distribution services |
             <a
-              href="https://asmanydrawshawa.com"
+              href="mailto:info@asmanydrawshawa.com"
               class="hover:text-white transition-colors"
-              >asmanydrawshawa.com</a
+              >Contact us for business inquiries</a
             >
           </p>
         </div>
@@ -1346,27 +1703,79 @@
         });
       });
 
-      // Form submission
+      // Form submission with professional handling
       document.querySelector("form").addEventListener("submit", function (e) {
         e.preventDefault();
-        alert("Thank you for your message! We will contact you soon.");
+
+        // Get form data
+        const formData = new FormData(this);
+        const formObject = {};
+        formData.forEach((value, key) => {
+          formObject[key] = value;
+        });
+
+        // Show professional confirmation
+        alert(
+          "Thank you for your professional inquiry. We will respond to your business request within 24 hours."
+        );
+
+        // Reset form
         this.reset();
       });
 
-      // Add scroll effect to header
+      // Enhanced scroll effects
+      let lastScrollY = window.scrollY;
       window.addEventListener("scroll", function () {
         const header = document.querySelector("header");
-        if (window.scrollY > 100) {
-          header.style.transform = "translateY(-10px)";
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > 100) {
+          header.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.1)";
         } else {
-          header.style.transform = "translateY(0)";
+          header.style.boxShadow = "none";
         }
+
+        lastScrollY = currentScrollY;
       });
 
-      // Initialize gallery with all products visible
+      // Initialize gallery items with proper animation setup
       document.addEventListener("DOMContentLoaded", function () {
-        // Trigger a resize event to help with masonry layout
-        window.dispatchEvent(new Event("resize"));
+        const gallery = document.querySelector(".photo-grid");
+        const photoItems = document.querySelectorAll(".photo-item");
+
+        if (gallery) {
+          gallery.classList.add("fade-in-up");
+        }
+
+        // Set initial state for photo items
+        photoItems.forEach((item) => {
+          item.style.opacity = "1";
+          item.style.transform = "translateY(0)";
+          item.style.transition = "all 0.4s ease";
+        });
+      });
+
+      // Professional animations for brand cards
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe brand cards for animation
+      document.querySelectorAll(".brand-card").forEach((card) => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+        card.style.transition = "all 0.6s ease";
+        observer.observe(card);
       });
     </script>
   </body>

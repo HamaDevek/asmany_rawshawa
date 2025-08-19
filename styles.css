@@ -1,11 +1,13 @@
-/* Professional gradient background */
-.professional-bg {
+/* Header background options */
+.header-bg {
   background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 50%, #312e81 100%);
   position: relative;
 }
 
-/* Subtle pattern overlay */
-.professional-bg::before {
+/* Alternative header backgrounds - uncomment the one you prefer */
+
+/* Option 1: Geometric Pattern */
+.header-bg.geometric::before {
   content: "";
   position: absolute;
   top: 0;
@@ -20,9 +22,153 @@
     linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
     linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%),
     linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%);
-  background-size: 20px 20px;
-  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
   opacity: 0.3;
+}
+
+/* Option 2: Hexagon Pattern */
+.header-bg.hexagon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      circle at 25% 25%,
+      rgba(255, 255, 255, 0.1) 2px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(255, 255, 255, 0.1) 2px,
+      transparent 2px
+    );
+  background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+  opacity: 0.4;
+}
+
+/* Option 3: Dots Pattern */
+.header-bg.dots::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 30px 30px;
+  opacity: 0.3;
+}
+
+/* Option 4: Wave Pattern */
+.header-bg.waves::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.05) 10px,
+    rgba(255, 255, 255, 0.05) 20px
+  );
+  opacity: 0.3;
+}
+
+/* Option 5: Custom Image Background */
+.header-bg.custom-image {
+  background-image: linear-gradient(
+      135deg,
+      rgba(30, 64, 175, 0.9) 0%,
+      rgba(30, 58, 138, 0.95) 50%,
+      rgba(49, 46, 129, 0.9) 100%
+    ),
+    url("/images/header-bg.jpg"); /* Add your custom image here */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Contact section background options */
+.contact-bg {
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 50%, #312e81 100%);
+  position: relative;
+}
+
+/* Option 1: Same as header */
+.contact-bg.geometric::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.05) 25%,
+      transparent 25%
+    ),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.05) 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+  opacity: 0.3;
+}
+
+/* Option 2: Different pattern for contact */
+.contact-bg.lines::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.05) 2px,
+      rgba(255, 255, 255, 0.05) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.05) 2px,
+      rgba(255, 255, 255, 0.05) 4px
+    );
+  background-size: 50px 50px;
+  opacity: 0.2;
+}
+
+/* Option 3: Dark solid background */
+.contact-bg.solid {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #030712 100%);
+}
+
+/* Option 4: Custom contact image */
+.contact-bg.custom-image {
+  background-image: linear-gradient(
+      135deg,
+      rgba(30, 64, 175, 0.9) 0%,
+      rgba(30, 58, 138, 0.95) 50%,
+      rgba(49, 46, 129, 0.9) 100%
+    ),
+    url("/images/contact-bg.jpg"); /* Add your custom image here */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 /* Logo container styles */
@@ -346,15 +492,17 @@
   height: 100vh;
 }
 
-/* Masonry grid */
+/* CSS Grid Layout for better filtering */
 .photo-grid {
-  columns: 1;
-  column-gap: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
 }
 
 @media (min-width: 640px) {
   .photo-grid {
-    columns: 2;
+    grid-template-columns: repeat(2, 1fr);
   }
   .logo-container {
     width: 4rem;
@@ -364,21 +512,24 @@
 
 @media (min-width: 768px) {
   .photo-grid {
-    columns: 3;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
   .photo-grid {
-    columns: 4;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 .photo-item {
-  break-inside: avoid;
-  margin-bottom: 1.5rem;
-  display: inline-block;
   width: 100%;
+  transition: all 0.4s ease;
+}
+
+/* Hidden items for filtering */
+.photo-item.hidden {
+  display: none !important;
 }
 
 /* Animation classes */

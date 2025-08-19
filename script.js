@@ -153,12 +153,21 @@ window.addEventListener("scroll", function () {
   lastScrollY = currentScrollY;
 });
 
-// Initialize gallery with fade-in animation
+// Initialize gallery items with proper animation setup
 document.addEventListener("DOMContentLoaded", function () {
   const gallery = document.querySelector(".photo-grid");
+  const photoItems = document.querySelectorAll(".photo-item");
+
   if (gallery) {
     gallery.classList.add("fade-in-up");
   }
+
+  // Set initial state for photo items
+  photoItems.forEach((item) => {
+    item.style.opacity = "1";
+    item.style.transform = "translateY(0)";
+    item.style.transition = "all 0.4s ease";
+  });
 });
 
 // Professional animations for brand cards
